@@ -5,6 +5,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import coil.load
+import com.example.practice.Data
+import com.example.practice.R
 import com.example.practice.databinding.ActivityMangaDetailBinding
 
 class MangaDetailActivity : AppCompatActivity() {

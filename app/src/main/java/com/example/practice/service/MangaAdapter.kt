@@ -39,7 +39,7 @@ class MangaAdapter(private val onItemClick: (Data) -> Unit) :
 
             // Set title (prefer English title)
             val englishTitle = manga.attributes.title.en
-            title.text = englishTitle ?: manga.attributes.altTitles?.firstOrNull()?.getFirstAvailableTitle() ?: "No Title"
+            title.text = englishTitle ?: manga.attributes.altTitles.firstOrNull()?.getFirstAvailableTitle() ?: "No Title"
 
             // Set status
             status.text = "Status: ${manga.attributes.status.replaceFirstChar { it.uppercase() }}"

@@ -19,7 +19,7 @@ class MangaViewModel : ViewModel() {
     val selectedManga: LiveData<Result<MangaDexSingleResponse>> = _selectedManga
 
     private val _chapters = MutableLiveData<Result<ChapterListResponse>>()
-    val chapters: LiveData<Result<MangaDexModels>> = _chapters
+    val chapters: LiveData<Result<ChapterListResponse>> = _chapters
 
     private val _chapterImages = MutableLiveData<Result<AtHomeResponse>>()
     val chapterImages: LiveData<Result<AtHomeResponse>> = _chapterImages

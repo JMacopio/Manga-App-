@@ -2,7 +2,8 @@ package com.example.practice.service
 
 import android.util.Log
 import com.example.practice.MangaDexModels
-import com.example.practice.service.RetrofitInstance.api
+import kotlin.Result
+
 
 class MangaRepository {
     private val api = RetrofitInstance.api
@@ -19,12 +20,11 @@ class MangaRepository {
         } catch (e: Exception) {
             Log.e("MangaRepository", "Error fetching manga list", e)
             Result.failure(e)
-            }
         }
     }
 
 
-// Get specific manga by ID
+    // Get specific manga by ID
     suspend fun getMangaById(id: String): Result<MangaDexSingleResponse> {
         return try {
             val response = api.getMangaById(id)
@@ -44,7 +44,7 @@ class MangaRepository {
         mangaId: String,
         limit: Int = 100,
         offset: Int = 0
-    ): Result<MangaDexModels> {
+    ): Result<ChapterListResponse> {
         return try {
             val response = api.getMangaChapters(mangaId, limit, offset)
             if (response.isSuccessful) {
@@ -72,3 +72,4 @@ class MangaRepository {
             Result.failure(e)
         }
     }
+}

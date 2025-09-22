@@ -35,12 +35,12 @@ interface MangaDexApiService {
         @Query("limit") limit: Int = 10,
         @Query("offset") offset: Int = 0,
         @Query("translatedLanguage[]") translatedLanguage: List<String> = listOf("en"),
-        @Query("order[readableAt]") orderReadableAt: String = "desc"
-    ): Response<MangaDexModels>
+        @Query("order[readableAt]") order: String = "asc"
+    ): Response<ChapterListResponse>
 
     //Get Chapter images (for reading!!!)
-    @GET("at-home/server/{id}")
-    suspend fun getChapterImages(@Path("id") id: String): Response<AtHomeResponse>
+    @GET("at-home/server/{ChapterId}")
+    suspend fun getChapterImages(@Path("ChapterId") id: String): Response<AtHomeResponse>
 
 //    //Get specific manga details by ID with relationships
 //    @GET("manga/{id}")
