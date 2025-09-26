@@ -3,73 +3,139 @@ package com.example.practice.service
 import android.util.Log
 import com.example.practice.MangaDexModels
 import kotlin.Result
+import kotlin.Result.Companion.failure
+import kotlin.Result.Companion.success
+
 
 
 class MangaRepository {
-    private val api = RetrofitInstance.api
+//    private val api = RetrofitInstance.api
 
     // Existing method for manga list
-    suspend fun getMangaList(limit: Int = 10, offset: Int = 0): Result<MangaDexModels> {
-        return try {
-            val response = api.getMangaList(limit, offset)
-            if (response.isSuccessful) {
-                Result.success(response.body()!!)
-            } else {
-                Result.failure(Exception("Failed to fetch manga: ${response.code()}"))
-            }
-        } catch (e: Exception) {
-            Log.e("MangaRepository", "Error fetching manga list", e)
-            Result.failure(e)
-        }
-    }
+//    suspend fun getMangaList(limit: Int = 10, offset: Int = 0): Result<MangaDexModels> {
+//        return try {
+//            val response = api.getMangaList(limit, offset)
+//            if (response.isSuccessful) {
+//                Result.success(response.body()!!)
+//            } else {
+//                Result.failure(Exception("Failed to fetch manga: ${response.code()}"))
+//            }
+//        } catch (e: Exception) {
+//            Log.e("MangaRepository", "Error fetching manga list", e)
+//            Result.failure(e)
+//        }
+//    }
 
 
     // Get specific manga by ID
-    suspend fun getMangaById(id: String): Result<MangaDexSingleResponse> {
+//    suspend fun getMangaById(id: String): Result<MangaDexSingleResponse> {
+//        return try {
+//            val response = api.getMangaById(id)
+//            if (response.isSuccessful) {
+//                Result.success(response.body()!!)
+//            } else {
+//                Result.failure(Exception("Failed to fetch manga: ${response.code()}"))
+//            }
+//        } catch (e: Exception) {
+//            Log.e("MangaRepository", "Error fetching manga by ID", e)
+//            Result.failure(e)
+//        }
+//    }
+
+    // Get chapters for a manga
+//    suspend fun getMangaChapters(
+//        mangaId: String,
+//        limit: Int = 100,
+//        offset: Int = 0
+//    ): Result<ChapterListResponse> {
+//        return try {
+//            val response = api.getMangaChapters(mangaId, limit, offset)
+//            if (response.isSuccessful) {
+//                Result.success(response.body()!!)
+//            } else {
+//                Result.failure(Exception("Failed to fetch chapters: ${response.code()}"))
+//            }
+//        } catch (e: Exception) {
+//            Log.e("MangaRepository", "Error fetching manga chapters", e)
+//            Result.failure(e)
+//        }
+//    }
+
+    // Get chapter images
+//    suspend fun getChapterImages(chapterId: String): Result<AtHomeResponse> {
+//        return try {
+//            val response = api.getChapterImages(chapterId)
+//            if (response.isSuccessful) {
+//                Result.success(response.body()!!)
+//            } else {
+//                Result.failure(Exception("Failed to fetch chapter images: ${response.code()}"))
+//            }
+//        } catch (e: Exception) {
+//            Log.e("MangaRepository", "Error fetching chapter images", e)
+//            Result.failure(e)
+//        }
+//    }
+
+    private val api = RetrofitInstance.api
+
+    suspend fun getMangaList(limit: Int = 10, offset: Int = 0): kotlin.Result<MangaDexModels> {
         return try {
-            val response = api.getMangaById(id)
+            val response = api.getMangaList(limit, offset)
             if (response.isSuccessful) {
-                Result.success(response.body()!!)
+                success(response.body()!!)
             } else {
-                Result.failure(Exception("Failed to fetch manga: ${response.code()}"))
+                failure(Exception("Failed to fetch manga: ${response.code()}"))
             }
         } catch (e: Exception) {
-            Log.e("MangaRepository", "Error fetching manga by ID", e)
-            Result.failure(e)
+            Log.e("MangaRepository", "Error fetching manga list", e)
+            failure(e)
         }
     }
 
-    // Get chapters for a manga
+    suspend fun getMangaById(id: String): kotlin.Result<MangaDexSingleResponse> {
+        return try {
+            val response = api.getMangaById(id)
+            if (response.isSuccessful) {
+                success(response.body()!!)
+            } else {
+                failure(Exception("Failed to fetch manga: ${response.code()}"))
+            }
+        } catch (e: Exception) {
+            Log.e("MangaRepository", "Error fetching manga by ID", e)
+            failure(e)
+        }
+    }
+
     suspend fun getMangaChapters(
         mangaId: String,
         limit: Int = 100,
         offset: Int = 0
-    ): Result<ChapterListResponse> {
+    ): kotlin.Result<ChapterListResponse> {
         return try {
             val response = api.getMangaChapters(mangaId, limit, offset)
             if (response.isSuccessful) {
-                Result.success(response.body()!!)
+                success(response.body()!!)
             } else {
-                Result.failure(Exception("Failed to fetch chapters: ${response.code()}"))
+                failure(Exception("Failed to fetch chapters: ${response.code()}"))
             }
         } catch (e: Exception) {
             Log.e("MangaRepository", "Error fetching manga chapters", e)
-            Result.failure(e)
+            failure(e)
         }
     }
 
-    // Get chapter images
-    suspend fun getChapterImages(chapterId: String): Result<AtHomeResponse> {
+    suspend fun getChapterImages(chapterId: String): kotlin.Result<AtHomeResponse> {
         return try {
             val response = api.getChapterImages(chapterId)
             if (response.isSuccessful) {
-                Result.success(response.body()!!)
+                success(response.body()!!)
             } else {
-                Result.failure(Exception("Failed to fetch chapter images: ${response.code()}"))
+                failure(Exception("Failed to fetch chapter images: ${response.code()}"))
             }
         } catch (e: Exception) {
             Log.e("MangaRepository", "Error fetching chapter images", e)
-            Result.failure(e)
+            failure(e)
         }
     }
+
 }

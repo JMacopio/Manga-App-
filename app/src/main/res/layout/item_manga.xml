@@ -18,7 +18,9 @@
             android:id="@+id/mangaCover"
             android:layout_width="80dp"
             android:layout_height="120dp"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:src="@drawable/placeholder"/>
 
         <LinearLayout
             android:layout_width="0dp"

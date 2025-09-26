@@ -1,24 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:ignore="ExtraText">
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="100dp"
     android:height="100dp"
     android:viewportWidth="100"
     android:viewportHeight="100">
+
+    <!-- Background -->
     <path
         android:fillColor="#CCCCCC"
         android:pathData="M0,0h100v100H0z" />
+
+    <!-- Book outline -->
+    <path
+        android:strokeColor="#999999"
+        android:strokeWidth="2"
+        android:pathData="M20,20h60v60H20z" />
+
+    <!-- Book spine -->
     <path
         android:fillColor="#999999"
-        android:pathData="M30,40h40v20H30z" />android:width="100dp"
-    android:height="100dp"
-    android:viewportWidth="100"
-    android:viewportHeight="100">
+        android:pathData="M20,20h10v60H20z" />
+
+    <!-- Text lines -->
     <path
-        android:fillColor="#CCCCCC"
-        android:pathData="M0,0h100v100H0z" />
+        android:strokeColor="#666666"
+        android:strokeWidth="1"
+        android:pathData="M40,35h30" />
     <path
-        android:fillColor="#999999"
-        android:pathData="M30,40h40v20H30z" />
+        android:strokeColor="#666666"
+        android:strokeWidth="1"
+        android:pathData="M40,45h30" />
+    <path
+        android:strokeColor="#666666"
+        android:strokeWidth="1"
+        android:pathData="M40,55h30" />
+    <path
+        android:strokeColor="#666666"
+        android:strokeWidth="1"
+        android:pathData="M40,65h20" />
+
 </vector>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<vector xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    tools:ignore="ExtraText">-->
+    <!--    android:width="100dp"-->
+    <!--    android:height="100dp"-->
+    <!--    android:viewportWidth="100"-->
+    <!--    android:viewportHeight="100">-->
+    <!--    <path-->
+    <!--        android:fillColor="#CCCCCC"-->
+    <!--        android:pathData="M0,0h100v100H0z" />-->
+    <!--    <path-->
+    <!--        android:fillColor="#999999"-->
+    <!--        android:pathData="M30,40h40v20H30z" />-->
+
+    <!--</vector>-->
